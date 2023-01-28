@@ -1,9 +1,7 @@
-<% form_with model: @book do |book| %>
 
-<p><strong>Title:</strong> <%= book.title %></p>
-<p><strong>Body:</strong> <%= book.body %></p>
+<p><strong>Title:</strong> <%= @book.title %></p>
+<p><strong>Body:</strong> <%= @book.body %></p>
 
-<% end %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
