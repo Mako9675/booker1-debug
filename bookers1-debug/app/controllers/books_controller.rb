@@ -31,7 +31,8 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully updated."
       redirect_to book_path(@book.id)
     else
-      render :edit
+      @books = Book.all
+      render :index
     end
   end
 
@@ -39,10 +40,10 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.destroy
     redirect_to books_path
+    flash[:notice] = "Book was successfully destroyed."
   end
 
   private
-
   def book_params
     params.require(:book).permit(:title, :body)
   end
